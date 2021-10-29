@@ -6,19 +6,17 @@ export const addUser = {
     method: 'POST',
     path: '/api/users',
     handler: async (req, h) => {
-        console.log(req.payload)
-        const { user_name = '', phone_number = '', user_id = '' } = req.payload;
+        const { user_name = '', phone_number = '', token = '', refresh_token = '', user_id = '' } = req.payload;
         if (user_id !== null && user_id !== '') {
             await db.query(
-                `INSERT IGNORE INTO users (user_name, phone_number,user_id)
-                VALUES (?,?,?);`,
-                [user_name, phone_number, user_id]
+                `INSERT IGNORE INTO users (user_name, phone_number,token,refresh_token,user_id)
+                VALUES (?,?,?,?,?);`,
+                [user_name, phone_number, token, refresh_token, user_id]
             )
             const { results } = await db.query(
-                'SELECT * FROM users'
+                `SELECT * FROM users WHERE user_id='${user_id}'`,
             )
-            const users = results;
-            return users;
+            return results;
         } else {
             throw Boom.badData('user_id can not be empty');
         }
