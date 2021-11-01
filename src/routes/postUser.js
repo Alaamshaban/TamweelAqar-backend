@@ -6,12 +6,13 @@ export const addUser = {
     method: 'POST',
     path: '/api/users',
     handler: async (req, h) => {
-        const { user_name = '', phone_number = '', token = '', refresh_token = '', user_id = '' } = req.payload;
+        const { user_name = '', phone_number = '', token = '', user_id = '', email = null } = req.payload;
+        console.log(user_id)
         if (user_id !== null && user_id !== '') {
             await db.query(
-                `INSERT IGNORE INTO users (user_name, phone_number,token,refresh_token,user_id)
+                `INSERT INTO users (user_name, phone_number,token,user_id,email)
                 VALUES (?,?,?,?,?);`,
-                [user_name, phone_number, token, refresh_token, user_id]
+                [user_name, phone_number, token, user_id, email]
             )
             const { results } = await db.query(
                 `SELECT * FROM users WHERE user_id='${user_id}'`,
