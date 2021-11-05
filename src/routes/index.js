@@ -1,13 +1,15 @@
 import { addViewToOffer } from "./addViewToOffer";
-import { getOfferRoute } from "./getIndividualOffer";
-import { getOffersRoute } from "./getOffersRoute"
+import { getIndividualOfferRoute } from "./getIndividualOffer";
+import { getUser } from "./getUser";
 import { getUserOffers } from "./getUserOffers";
 import { addUser } from "./postUser";
+import { updateUser } from "./updateUser";
 
 export default[
-    getOffersRoute,
-    getOfferRoute,
+    getIndividualOfferRoute,
     addViewToOffer,
     getUserOffers,
-    addUser
+    addUser,
+    updateUser,
+    getUser
 ];

@@ -2,7 +2,7 @@ import { Offers } from "./offers";
 import Boom from '@hapi/boom';
 import { db } from '../database';
 
-export const getOfferRoute = {
+export const getIndividualOfferRoute = {
     method: 'GET',
     path: '/api/offers/{id}',
     handler: async (req, h) => {
