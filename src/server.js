@@ -6,7 +6,6 @@ import {db} from './database';
 
 
 
-
 admin.initializeApp({
     credential: admin.credential.cert(credentials)
 });
