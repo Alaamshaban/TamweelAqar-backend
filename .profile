@@ -1,0 +1,1 @@
+echo ${GOOGLE_CREDENTIALS} > /app/google-cred.json
