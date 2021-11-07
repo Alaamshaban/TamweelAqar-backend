@@ -18,7 +18,8 @@ const start = async () => {
         host: '0.0.0.0',
         routes: {
             cors: {
-                origin: ['*'] // an array of origins or 'ignore'           
+                origin: ['*'], // an array of origins or 'ignore'    
+                credentials: true // boolean - 'Access-Control-Allow-Credentials'
             }
         }
     });
@@ -34,11 +35,10 @@ const start = async () => {
     routes.forEach(route => {
         myServer.route({
             ...route,
-            config: {
+            options: {
                 cors: {
-                    origin: ['*'],
-                    additionalHeaders: ['cache-control', 'x-requested-with']
-                }
+                    credentials: true
+                },
             }
         });
     });
