@@ -1,20 +1,20 @@
 import Hapi from '@hapi/hapi';
 import routes from './routes';
 import * as admin from 'firebase-admin';
-//import credentials from '../cred.json';
+import credentials from '../cred.json';
 import {db} from './database';
 
 
 
 admin.initializeApp({
-    credential: admin.credential.cert('credentials')
+    credential: admin.credential.cert(credentials)
 });
 
  let myServer;
 
 const start = async () => {
     myServer = Hapi.server({
-        port: 8080,
+        port: process.env.PORT || 1337,
         host: '0.0.0.0'
     });
 
