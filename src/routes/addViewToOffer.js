@@ -4,7 +4,6 @@ import { db } from '../database';
 export const addViewToOffer = {
     method: 'PUT',
     path: '/api/offers/{id}/add-view',
-    cors: true,
     handler: async (req, h) => {
         const id = req.params.id;
         await db.query(

@@ -5,7 +5,6 @@ import { db } from '../database';
 export const getIndividualOfferRoute = {
     method: 'GET',
     path: '/api/offers/{id}',
-    cors: true,
     handler: async (req, h) => {
         const id = req.params.id;
         console.log(id)
