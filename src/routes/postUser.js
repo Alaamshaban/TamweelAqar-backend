@@ -7,6 +7,7 @@ import Boom from '@hapi/boom';
 export const addUser = {
     method: 'POST',
     path: '/api/users',
+    cors: true,
     handler: async (req, h) => {
         const token = req.headers.authtoken;
         console.log('token??', token);
