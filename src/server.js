@@ -13,8 +13,8 @@ admin.initializeApp({
 
 const start = async () => {
     myServer = Hapi.server({
-        port: 8000,
-        host: 'localhost'
+        port: 8080,
+        host: '0.0.0.0'
     });
 
     routes.forEach(route => {
