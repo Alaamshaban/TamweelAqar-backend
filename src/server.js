@@ -18,7 +18,7 @@ const start = async () => {
         host: '0.0.0.0',
         routes: {
             cors: {
-                origin: ['https://tamweelaqar.herokuapp.com','https://tamweelaqar-fe.herokuapp.com'], // an array of origins or 'ignore'    
+                origin: ['*'], // an array of origins or 'ignore'    
                 credentials: true // boolean - 'Access-Control-Allow-Credentials'
             }
         }
@@ -34,10 +34,7 @@ const start = async () => {
 
     routes.forEach(route => {
         route.options = {
-            cors: {
-                origin: ['https://tamweelaqar.herokuapp.com','https://tamweelaqar-fe.herokuapp.com'],
-                credentials: true
-            }
+            cors:true
         }
         console.log(route)
         myServer.route(route);
