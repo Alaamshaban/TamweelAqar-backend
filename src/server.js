@@ -37,6 +37,7 @@ const start = async () => {
             ...route,
             options: {
                 cors: {
+                    origin: ['*'],
                     credentials: true
                 },
             }
