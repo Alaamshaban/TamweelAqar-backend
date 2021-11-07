@@ -32,7 +32,15 @@ const start = async () => {
     })
 
     routes.forEach(route => {
-        myServer.route(route);
+        myServer.route({
+            ...route,
+            config: {
+                cors: {
+                    origin: ['*'],
+                    additionalHeaders: ['cache-control', 'x-requested-with']
+                }
+            }
+        });
     });
 
     db.connect();
