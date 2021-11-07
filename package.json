@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec babel-node src/server.js",
     "build": "babel ./src --out-dir ./build",
-    "start": "nodemon --exec babel-node ./build/server.js"
+    "start": "node ./build/server.js"
   },
   "keywords": [],
   "author": "",
