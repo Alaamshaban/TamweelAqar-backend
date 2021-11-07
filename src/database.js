@@ -8,7 +8,7 @@ const connection = mysql.createConnection({
 });
 
 export const db = {
-    connect: () => connection.connect(),
+    connect: () => connection.connect((err)=>{console.log('error in connection',err)}),
     query: (querystring, escapedValues) =>
         new Promise((resolve, reject) => {
             connection.query(querystring, escapedValues, (error, results, fields) => {

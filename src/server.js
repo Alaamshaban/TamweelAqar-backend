@@ -17,12 +17,12 @@ const start = async () => {
         port: process.env.PORT || 1337,
         host: '0.0.0.0'
     });
-    routes.push(         {
+    routes.push({
         method: 'GET',
         path: '/',
         handler: (req, h) => {
             // return h.response('Hello!').code(201);
-            return 'Hello!';
+            return h.redirect('https://tamweelaqar-fe.herokuapp.com/home');
         }
     })
 
