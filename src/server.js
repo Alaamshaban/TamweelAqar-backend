@@ -1,7 +1,7 @@
 import Hapi from '@hapi/hapi';
 import routes from './routes';
 import * as admin from 'firebase-admin';
-import credentials from '../cred.json';
+import credentials from '../google-credentials.json';
 import {db} from './database';
 
 
