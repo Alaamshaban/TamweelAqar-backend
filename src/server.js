@@ -5,6 +5,7 @@ import credentials from '../cred.json';
 import {db} from './database';
 
 
+
 admin.initializeApp({
     credential: admin.credential.cert(credentials)
 });
