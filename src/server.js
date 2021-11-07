@@ -17,6 +17,14 @@ const start = async () => {
         port: process.env.PORT || 1337,
         host: '0.0.0.0'
     });
+    routes.push(         {
+        method: 'GET',
+        path: '/',
+        handler: (req, h) => {
+            // return h.response('Hello!').code(201);
+            return 'Hello!';
+        }
+    })
 
     routes.forEach(route => {
         myServer.route(route);
@@ -24,27 +32,6 @@ const start = async () => {
 
     db.connect();
 
-    // server.route
-    //     ([
-    //         {
-    //             method: 'GET',
-    //             path: '/hello',
-    //             handler: (req, h) => {
-    //                 // return h.response('Hello!').code(201);
-    //                 return 'Hello!';
-    //             }
-    //         },
-    //         {
-    //             method: 'POST',
-    //             path: '/hello/post',
-    //             handler: (req, h) => {
-    //                 const payload = req.payload;
-    //                 // return h.response('Hello!').code(201);
-    //                 return `Hello ${payload.name}!`;
-    //             }
-    //         }
-    //     ]
-    //     )
 
     await myServer.start();
     console.log(`server is listening on ${myServer.info.uri}`);

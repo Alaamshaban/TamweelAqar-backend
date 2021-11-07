@@ -10,8 +10,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec babel-node src/server.js",
-    "build": "babel ./src --out-dir ./build",
-    "start": "node ./build/server.js"
+    "start":"nodemon --exec babel-node build/server.js",
+    "build":"babel ./src --out-dir ./build"
   },
   "keywords": [],
   "author": "",
