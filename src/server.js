@@ -14,10 +14,13 @@ let myServer;
 
 const start = async () => {
     myServer = Hapi.server({
-        port: process.env.PORT || 1337,
         host: '0.0.0.0',
+        port: process.env.PORT || 1337,
         routes: {
-            cors: true
+            cors: {
+                origin: ['*'], // an array of origins or 'ignore'    
+                credentials: true // boolean - 'Access-Control-Allow-Credentials'
+            }
         }
     });
     routes.push({
@@ -30,10 +33,6 @@ const start = async () => {
     })
 
     routes.forEach(route => {
-        route.options = {
-            cors:true
-        }
-        console.log(route)
         myServer.route(route);
     });
 
