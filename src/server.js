@@ -33,15 +33,12 @@ const start = async () => {
     })
 
     routes.forEach(route => {
-        myServer.route({
-            ...route,
-            options: {
-                cors: {
-                    origin: ['ignore'],
-                    credentials: true
-                },
-            }
-        });
+        route.options={
+            origin: ['*'],
+            credentials: true
+        }
+        console.log(route)
+        myServer.route(route);
     });
 
     db.connect();
