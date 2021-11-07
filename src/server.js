@@ -15,7 +15,6 @@ let myServer;
 const start = async () => {
     myServer = Hapi.server({
         port: process.env.PORT || 3000,
-        labels: ['api'],
         routes: {
             cors: {
                 origin: ['*'], // an array of origins or 'ignore'    
