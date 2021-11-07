@@ -10,8 +10,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec babel-node src/server.js",
-    "start":"nodemon --exec babel-node build/server.js",
-    "build":"babel ./src --out-dir ./build"
+    "start": "nodemon --exec babel-node build/server.js",
+    "build": "babel ./src --out-dir ./build"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
   "dependencies": {
     "@babel/runtime": "^7.15.4",
     "@hapi/hapi": "^20.2.1",
+    "cors": "^2.8.5",
     "firebase-admin": "^10.0.0",
     "formula-pmt": "^1.0.1",
     "mysql": "^2.18.1"
