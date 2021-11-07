@@ -17,10 +17,7 @@ const start = async () => {
         port: process.env.PORT || 1337,
         host: '0.0.0.0',
         routes: {
-            cors: {
-                origin: ['*'], // an array of origins or 'ignore'    
-                credentials: true // boolean - 'Access-Control-Allow-Credentials'
-            }
+            cors: true
         }
     });
     routes.push({
