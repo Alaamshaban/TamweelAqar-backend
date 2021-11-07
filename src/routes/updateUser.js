@@ -7,7 +7,8 @@ export const updateUser = {
     method: 'PUT',
     path: '/api/users/{user_id}',
     options: {
-        cors: true,
+        cors: { origin: ['*'], // an array of origins or 'ignore'    
+        credentials: true},
         handler: async (req, h) => {
             const token = req.headers.authtoken;
             console.log('token??', token);
