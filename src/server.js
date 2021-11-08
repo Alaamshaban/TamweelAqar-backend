@@ -14,18 +14,18 @@ let myServer;
 
 const start = async () => {
     myServer = Hapi.server({
-        port: process.env.PORT || 1337,
+        port: 1337,
         host: '0.0.0.0',
-        // routes: {
-        //     cors: {
-        //         origin: ['*'], // an array of origins or 'ignore'
-        //         headers: ['AuthToken'], // an array of strings - 'Access-Control-Allow-Headers'
-        //         exposedHeaders: ['Accept'], // an array of exposed headers - 'Access-Control-Expose-Headers',
-        //         additionalExposedHeaders: ['Accept'], // an array of additional exposed headers
-        //         // maxAge: 60,
-        //         credentials: true
-        //     }
-        // }
+        routes: {
+            cors: {
+                origin: ['*'], // an array of origins or 'ignore'
+                headers: ['AuthToken'], // an array of strings - 'Access-Control-Allow-Headers'
+                exposedHeaders: ['Accept'], // an array of exposed headers - 'Access-Control-Expose-Headers',
+                additionalExposedHeaders: ['Accept'], // an array of additional exposed headers
+                maxAge: 60,
+                credentials: true
+            }
+        }
     });
     routes.push({
         method: 'GET',
