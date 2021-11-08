@@ -2,13 +2,10 @@
 import { db } from '../database';
 import * as admin from 'firebase-admin';
 import Boom from '@hapi/boom';
-
-
 export const addUser = {
     method: 'POST',
     path: '/api/users',
     handler: async (req, h) => {
-
                 const { user_name = '', phone_number = '', token = '', user_id = '', email_address = null } = req.payload;
                 console.log(user_id,token)
                 if (user_id !== null && user_id !== '') {
