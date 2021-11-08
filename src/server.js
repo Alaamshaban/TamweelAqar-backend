@@ -14,7 +14,8 @@ let myServer;
 
 const start = async () => {
     myServer = Hapi.server({
-        port: process.env.PORT || 8000,
+        port: process.env.PORT || 1337,
+        host: '0.0.0.0',
         routes: {
             cors: {
                 origin: ['*'], // an array of origins or 'ignore'
