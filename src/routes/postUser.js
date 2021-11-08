@@ -8,13 +8,9 @@ export const addUser = {
     method: 'POST',
     path: '/api/users',
     handler: async (req, h) => {
-        const token = req.headers.authtoken;
-        console.log('token??', token);
-        try {
-            const user = await admin.auth().verifyIdToken(token, true);
-            if (user) {
+
                 const { user_name = '', phone_number = '', token = '', user_id = '', email_address = null } = req.payload;
-                console.log(user_id)
+                console.log(user_id,token)
                 if (user_id !== null && user_id !== '') {
                     await db.query(
                         `INSERT INTO users (user_name, phone_number,token,user_id,email_address)
@@ -30,9 +26,4 @@ export const addUser = {
                 }
 
             }
-        } catch (err) {
-            console.log(err);
-            throw Boom.unauthorized('Users can only access offers, Please Sign in first');
-        }
-    }
 }
