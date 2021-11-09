@@ -18,7 +18,7 @@ const start = async () => {
         routes: {
             cors: {
                 origin: ['*'], // an array of origins or 'ignore'
-                additionalHeaders: ['AuthToken', 'Access-Control-Allow-Headers', 'Access-Control-Allow-Credentials', 'X-Requested-With', 'content-type'], // an array of additional exposed headers
+                additionalHeaders: ['AuthToken', 'Access-Control-Allow-Headers', 'Access-Control-Allow-Credentials','X-Requested-With','content-type'], // an array of additional exposed headers
             }
         }
     });
@@ -34,11 +34,8 @@ const start = async () => {
     routes.forEach(route => {
         myServer.route(route);
     });
-    setInterval(() => {
 
-        db.connect()
-    }, 2000)
-
+    db.connect();
 
     await myServer.start();
     console.log(`server is listening on ${myServer.info.uri}`);
