@@ -1,6 +1,6 @@
 import mysql from 'mysql';
 
-const connection = mysql.createPool({
+const connection = mysql.createConnection({
     host: 'remotemysql.com',
     user: '841ZEBGTq7',
     password: 'h8utPlWg1H',
@@ -8,7 +8,7 @@ const connection = mysql.createPool({
 });
 
 export const db = {
-    connect: () => connection.getConnection((err)=>{console.log('error in connection',err)}),
+    connect: () => connection.connect((err)=>{console.log('error in connection',err)}),
     query: (querystring, escapedValues) =>
         new Promise((resolve, reject) => {
             connection.query(querystring, escapedValues, (error, results, fields) => {
