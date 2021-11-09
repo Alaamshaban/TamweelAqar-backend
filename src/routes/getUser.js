@@ -14,6 +14,7 @@ export const getUser = {
             if (user) {
                 const user_id = req.params.user_id;
                 console.log(user_id)
+                db.connect();
                 const { results } = await db.query(
                     'SELECT * FROM users WHERE user_id=?',
                     [user_id]
