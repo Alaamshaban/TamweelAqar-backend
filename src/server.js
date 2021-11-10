@@ -18,7 +18,7 @@ const start = async () => {
         routes: {
             cors: {
                 origin: ['*'], // an array of origins or 'ignore'
-                additionalHeaders: ['AuthToken', 'Access-Control-Allow-Headers', 'Access-Control-Allow-Credentials','X-Requested-With','content-type'], // an array of additional exposed headers
+                additionalHeaders: ['AuthToken', 'Access-Control-Allow-Headers', 'Access-Control-Allow-Credentials', 'X-Requested-With', 'content-type'], // an array of additional exposed headers
             }
         }
     });
@@ -39,12 +39,22 @@ const start = async () => {
 
     await myServer.start();
     console.log(`server is listening on ${myServer.info.uri}`);
+
 }
+
+
 
 process.on('unhandledRejection', err => {
     console.log(err);
-    process.exit(1);
 });
+process.on('unhandledException', err => {
+    console.log(err);
+});
+
+    // restart server every 2 min
+    setInterval(() => {
+        db.handleDisconnect();
+    }, 120000)
 
 
 process.on('SIGINT', async () => {
