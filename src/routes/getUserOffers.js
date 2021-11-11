@@ -14,7 +14,7 @@ export const getUserOffers = {
             if (user) {
                 const { purchase_price, user_salary, user_down_payment, user_mortgage_term_length } = req.query;
                 const { results } = await db.query('SELECT interest_rate,required_payment_to_salary_ratio FROM offers');
-                const percentage_down_payment = purchase_price / user_down_payment;
+                const percentage_down_payment = (user_down_payment / purchase_price) * 100;
                 const mortgage_amount = purchase_price * (1 - (percentage_down_payment / 100));
                 for (let i = 0; i < results.length; i++) {
                     await db.query(
