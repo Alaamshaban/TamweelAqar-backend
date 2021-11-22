@@ -1,6 +1,7 @@
 import { addViewToOffer } from "./addViewToOffer";
 import { getIndividualOfferRoute } from "./getIndividualOffer";
 import { getUser } from "./getUser";
+import { getUserByPhoneNumber } from "./getUserByPhone";
 import { getUserOffers } from "./getUserOffers";
 import { addUser } from "./postUser";
 import { updateUser } from "./updateUser";
@@ -11,5 +12,6 @@ export default[
     getUserOffers,
     addUser,
     updateUser,
-    getUser
+    getUser,
+    getUserByPhoneNumber
 ];
