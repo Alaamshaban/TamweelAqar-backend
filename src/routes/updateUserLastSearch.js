@@ -21,6 +21,7 @@ export const updateUserLastSearch = {
                 // remove duplicates form user_history table
                 await db.query(`DELETE t1 FROM user_history t1 INNER JOIN user_history t2 WHERE
                 t1.id > t2.id AND
+                t1.user_id = t2.user_id AND
                 t1.property_area = t2.property_area AND
                 t1.purchase_price=t2.purchase_price AND
                 t1.user_mortgage_term_length=t2.user_mortgage_term_length AND 
