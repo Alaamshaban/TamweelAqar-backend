@@ -3,11 +3,11 @@ const AdminBro = require('admin-bro')
 const AdminBroSequelize = require('@admin-bro/sequelize')
 const Hapi = require('hapi');
 const { Sequelize, Model, DataTypes } = require('sequelize');
-import { db } from './database';
-import { UserModel } from './models/user.model';
-import { UserHistoryModel } from './models/user-history.model'
-import { RevealedOfferModel } from './models/revealed-offers.mode';
-import { OfferModel } from './models/offer.model';
+import { db } from './src/database';
+import { UserModel } from './src/models/user.model';
+import { UserHistoryModel } from './src/models/user-history.model'
+import { RevealedOfferModel } from './src/models/revealed-offers.mode';
+import { OfferModel } from './src/models/offer.model';
 
 AdminBro.registerAdapter(AdminBroSequelize)
 
@@ -52,6 +52,7 @@ const findAllWithHistory = async () => {
       { model: RevealedOffer, as: 'revealed_offer' }
     ]
   });
+
   users.map(user => {
     if (user.user_history) {
       User.update({
@@ -99,7 +100,8 @@ const adminBroOptions = {
       }
   }
 },
-    {resource:Offer}],
+    {resource:Offer},
+    UserHistory],
   branding: {
     //   logo: 'URL_TO_YOUR_LOGO',
     companyName: 'TamweelAkar',
