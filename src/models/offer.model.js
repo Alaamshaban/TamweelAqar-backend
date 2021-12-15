@@ -28,14 +28,14 @@ export const OfferModel = {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    founder: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-        get: function () {
-            return JSON.stringify(this.getDataValue('founder'));
-        },
-        set: function (value) {
-            this.setDataValue('founder', (value));
-        },
-    }
+    // founder: {
+    //     type: DataTypes.TEXT,
+    //     allowNull: false,
+    //     get: function () {
+    //         return JSON.stringify(this.getDataValue('founder'));
+    //     },
+    //     set: function (value) {
+    //         this.setDataValue('founder', (value));
+    //     },
+    // }
 }
