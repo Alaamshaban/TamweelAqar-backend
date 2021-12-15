@@ -22,10 +22,7 @@ const start = async () => {
             }
         }
     });
-    await myServer.register({
-        plugin: AdminBroPlugin,
-        options: adminBroOptions,
-    })
+
     routes.push({
         method: 'GET',
         path: '/',
